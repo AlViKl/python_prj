@@ -1,9 +1,6 @@
 from app.db_management.data_model import RNA, DNA, Codon, Aminoacid
 from app.db_management.data_configuration import Base, Engine, Session
-from data.rna_to_aminoacid_data import AMINOACID_TO_RNA
-
-
-Base.metadata.create_all(Engine)
+from app.data.rna_to_aminoacid_data import AMINOACID_TO_RNA
 
 
 rna = [
@@ -31,6 +28,7 @@ for aminoacid, codons in AMINOACID_TO_RNA.items():
 
 def fill_tables():
     with Session() as session:
+        Base.metadata.create_all(Engine)
         session.add_all(dna)
         session.commit()
         session.add_all(codons_data)

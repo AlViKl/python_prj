@@ -1,4 +1,4 @@
-from data.rna_to_aminoacid_data import RNA_TO_AMINOACID
+from app.data.rna_to_aminoacid_data import RNA_TO_AMINOACID
 from app.db_management.data_queries import get_rna, get_aminoacid
 
 CODON_LENGTH = 3
@@ -27,6 +27,15 @@ def convert_rna_to_protein(rna_sequence: str) -> str:
         if len(codon) == CODON_LENGTH:
             protein += get_aminoacid(codon)
     return protein
+
+
+def calculation_gc_content(sequence: str) -> int:
+    '''
+    Calculation of GC content in DNA/RNA
+    '''
+    g_count = sequence.count('G')
+    c_count = sequence.count('C')
+    return round((g_count + c_count) / len(sequence) * 100)
 
 
 def convert_dna_to_rna_legacy(dna_sequence: str) -> str:

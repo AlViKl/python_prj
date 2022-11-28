@@ -1,0 +1,5 @@
+matplotlib==3.6.2
+numpy==1.23.5
+psycopg2-binary==2.9.5
+SQLAlchemy==1.4.43
+SQLAlchemy-Utils==0.38.3
