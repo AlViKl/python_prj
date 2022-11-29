@@ -22,8 +22,6 @@ def plot_gc_calcution(gc_list: list[int],
     Plots DNA sequence distribution and save to output file
     '''
     x = np.arange(0, len(gc_list))
-    print(x)
-    print(gc_list)
     plt.step(x, gc_list, where='post')
     plt.suptitle("GC content distribution")
     plt.xlabel("Genome position")
